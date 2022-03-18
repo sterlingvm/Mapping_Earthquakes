@@ -12,20 +12,15 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
 
-// Leaflet.js Marker syntax for Leaflet.js map
-// Use marker() function
-var marker1 = L.marker([51.5, -0.09]).addTo(map);
+// Get data from cities.js
+let cityData = cities;
 
-//  Add a marker to the map for Los Angeles, California.
-// Use marker() function
-let marker2 = L.marker([34.0522, -118.2437]).addTo(map);
-
-// Add a circle marker to the map for Los Angeles, California.
-// Use circle() function
-L.circle([30.0522, -118.2437]).addTo(map);
-
- // OR USE circleMarker() function
- L.circleMarker([35.0522, -118.2437], {radius: 10}).addTo(map);
- 
-
- 
+// Loop through the cities array and create one marker for each city.
+cityData.forEach(function(city) {
+    console.log(city)
+    L.circleMarker(city.location, {
+        radius: city.population/100000,
+    })
+    .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+    .addTo(map);
+});
