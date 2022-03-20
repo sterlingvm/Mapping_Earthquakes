@@ -63,7 +63,8 @@ L.control.layers(baseMaps).addTo(map);
 //
 
 
-// Accessing the Toronto neighborhoods GeoJSON URL.
+// Accessing the Topical Official Global USGS Earthquake data 
+// from the USGS official website and database
 let allEarthquakes = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Create a style for the lines.
